@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@akala/core": "^2.0.66",
+    "@domojs/protocol-parser": "^1.2.12",
+    "serialport": "^7.1.4"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.0",
+    "@types/node": "^10.12.24"
+  },
+  "name": "rfx",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/npenin/rfx.git",
+  "author": "Nicolas Penin <nicolas.penin@dragon-angel.fr>",
+  "license": "MIT"
+}
