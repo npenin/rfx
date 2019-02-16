@@ -10,10 +10,11 @@
     "typescript": "^3.3.3"
   },
   "scripts": {
-    "build": "tsc -p src"
+    "build": "tsc -p src",
+    "prepublishOnly": "tsc -p src"
   },
   "name": "rfxtrx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "repository": "https://github.com/npenin/rfx.git",
   "author": "Nicolas Penin <nicolas.penin@dragon-angel.fr>",
