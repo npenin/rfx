@@ -721,6 +721,7 @@ export interface EventMap extends AnimationEventMap
     INTERFACE_MESSAGE: InterfaceMessage.ModeResponse | InterfaceMessage.ListRFYRemote | InterfaceMessage.CheckRFXCOMDevice;
     CURRENT_ENERGY: Elec1.Device;
     ENERGY: Elec2.Device;
+    TEMPERATURE_HUMIDITY: TemperatureHumidity.Device;
 }
 
 export interface Message<TSubMessage =any>
