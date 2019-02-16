@@ -30,7 +30,7 @@
     uuid "^3.3.2"
     ws "^6.0.0"
 
-"@domojs/protocol-parser@^1.2.12":
+"@domojs/protocol-parser@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@domojs/protocol-parser/-/protocol-parser-1.3.0.tgz#bfbab8f2f10818fe782f0ec77720b3a3d732c3b7"
   integrity sha512-2GhwndnPQiP1RaGWUljZ82kv/n+Xrb00m5LaDDhk6pZiRM+zNztBPjiVxmePuyoIDUQfxhHbdZK078BK/OYsag==
