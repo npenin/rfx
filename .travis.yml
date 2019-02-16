@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- node
+before_script:
+- yarn build
+deploy:
+  provider: npm
+  email: nicolas.penin@dragon-angel.fr
+  skip_cleanup: true
+  api_key:
+    secure: Mmf3SovveBFMn+mvLsJX/e7UFEZ8RT4FrKHyh+c1XG6cN5g9zf4pal76poa01Dkc35+7gONhlEEn/0e4Qr4ge+e/QvJs7Mx0fU8aANXPt/YsX7gbk5emFMvcHxyg37hQDyZj9fVy2CoE4KEMpjKloVmoe4Jb3pybovyU1UGz4Np8qXCda6tbjBpELgG4WPfIydTJBQ5oLUGQorQuDm5NUGcT1+7X4EOU5v9m2Aax8VlSW6yyJi0vO9Cvl1wBMb4O+QMARU42RTvE270khPOzGXJUsrNomDsnO00V9PebZ8EpAYzpbQLZ+tYjz/61yOhoHEq5KOLQbUvmNOJx3Y7KXoWgxdUoexRJ3BoPrlgyEh4KyVpz02P4wW6iBiZYeiTdzC1AMR0sLysIurzKwvDoh/iTVx/aZ9qC02oa8Cwxt/ckRAV7ZGTPRLtASVoaUFC9IwJ9xSeAcibY/u0sOtOlx8L+26ckPPPPdp5vNuCZGkTfBkugn+1FlAFAfQFkKJ37fkf81kWej9SW1Y2pCd0hgVGIKtpgyWkSs9eH2wCQT/FxcCpEvxJFJNa+i7yMwwmvG+xckYQrsC4vibJifgjszB3htfFVzLNr/x++fs+rOb5aOk85xnkJWrzC4QTAM964mQeIfS0AHsivo6500KfZX9AyuYF6IhGdLxjAIVqR7sQ=
