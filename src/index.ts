@@ -114,6 +114,7 @@ import * as InterfaceControl from './0.interface.mode';
 import * as InterfaceMessage from './1.interface.response';
 import * as Elec1 from './elec1';
 import * as Elec2 from './elec2';
+import * as TemperatureHumidity from './temperature and humidity';
 import { Interface } from 'readline';
 
 
@@ -360,7 +361,20 @@ export namespace Type
     }
     export enum TEMPERATURE_HUMIDITY
     {
-
+        TH1 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH1,
+        TH2 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH2,
+        TH3 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH3,
+        TH4 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH4,
+        TH5 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH5,
+        TH6 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH6,
+        TH7 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH7,
+        TH8 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH8,
+        TH9 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH9,
+        TH10 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH10,
+        TH11 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH11,
+        TH12 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH12,
+        TH13 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH13,
+        TH14 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH14,
     }
     export enum BAROMETRIC
     {
@@ -731,6 +745,7 @@ export type RFXDevice =
     | Lighting6.Device
     | Elec1.Device
     | Elec2.Device
+    | TemperatureHumidity.Device
     ;
 
 InterfaceControl.init();
@@ -746,3 +761,4 @@ Lighting5.init();
 Lighting6.init();
 Elec1.init();
 Elec2.init();
+TemperatureHumidity.init();
