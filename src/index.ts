@@ -361,20 +361,20 @@ export namespace Type
     }
     export enum TEMPERATURE_HUMIDITY
     {
-        TH1 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH1,
-        TH2 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH2,
-        TH3 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH3,
-        TH4 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH4,
-        TH5 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH5,
-        TH6 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH6,
-        TH7 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH7,
-        TH8 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH8,
-        TH9 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH9,
-        TH10 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH10,
-        TH11 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH11,
-        TH12 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH12,
-        TH13 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH13,
-        TH14 = PacketType.SECURITY1 << 8 | TemperatureHumidity.SubType.TH14,
+        TH1 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH1,
+        TH2 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH2,
+        TH3 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH3,
+        TH4 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH4,
+        TH5 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH5,
+        TH6 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH6,
+        TH7 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH7,
+        TH8 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH8,
+        TH9 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH9,
+        TH10 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH10,
+        TH11 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH11,
+        TH12 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH12,
+        TH13 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH13,
+        TH14 = PacketType.TEMPERATURE_HUMIDITY << 8 | TemperatureHumidity.SubType.TH14,
     }
     export enum BAROMETRIC
     {
