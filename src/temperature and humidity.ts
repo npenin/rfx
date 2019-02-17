@@ -36,7 +36,7 @@ export enum SubType
     RTGR383 = 0x03,
     TH4 = 0x04,
     THGR328 = 0x04,
-    TH5 = 0x04,
+    TH5 = 0x05,
     WTGR800 = 0x05,
     TH6 = 0x06,
     THGR918 = 0x06,
