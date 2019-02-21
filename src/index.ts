@@ -506,6 +506,7 @@ export class Rfxtrx extends EventEmitter
 
         log(buffer);
         var message = Protocol.read(buffer);
+        this.sqnce = message.sequenceNumber;
         log(message);
         this.emit('message', message);
         next(true);
@@ -658,6 +659,7 @@ export class Rfxtrx extends EventEmitter
     public send<T extends RFXDevice>(type: number, message?: Partial<T>)
     {
         var msg: Message<Partial<T>> = { type: type, message: message, sequenceNumber: this.sqnce++, length: 0 };
+        log(msg);
         var buffer = Protocol.write(msg);
         buffer[0] = buffer.length - 1;
         return new Promise<Message<any>>((resolve, reject) =>

@@ -14,7 +14,7 @@
     "prepublishOnly": "tsc -p src"
   },
   "name": "rfxtrx",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "repository": "https://github.com/npenin/rfx.git",
   "author": "Nicolas Penin <nicolas.penin@dragon-angel.fr>",
