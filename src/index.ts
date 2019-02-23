@@ -537,8 +537,8 @@ export class Rfxtrx extends EventEmitter
         {
             this.emit(message.type.toString(), message.message);
 
-            this.emit(PacketType[message.type && 0xff00 >> 8] as keyof PacketType, message.message);
-            this.emit(Type[PacketType[message.type && 0xff00 >> 8]][message.type], message.message);
+            this.emit(PacketType[(message.type & 0xff00) >> 8] as keyof PacketType, message.message);
+            this.emit(Type[PacketType[(message.type & 0xff00) >> 8]][message.type], message.message);
         })
     }
 
