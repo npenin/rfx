@@ -732,9 +732,10 @@ export class Rfxtrx extends EventEmitter
             const serials: string[] = [];
             await eachAsync(result, (d, i, next) =>
             {
-                readdir(d.busNumber + '-' + d.portNumbers.join('.') + '/' + d.busNumber + '-' + d.portNumbers.join('.') + ':1.0', function (err, files)
+                readdir('/sys/bus/usb/devices/' + d.busNumber + '-' + d.portNumbers.join('.') + '/' + d.busNumber + '-' + d.portNumbers.join('.') + ':1.0', function (err, files)
                 {
-                    var tty = files.find(f => f.startsWith('tty'));
+                    if (files)
+                        var tty = files.find(f => f.startsWith('tty'));
                     if (tty)
                         serials.push('/dev/' + tty);
                     next(err);
