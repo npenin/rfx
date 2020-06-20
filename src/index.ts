@@ -704,7 +704,7 @@ export class Rfxtrx extends EventEmitter
                         return reject('no matching port could be found');
                     if (devices.length > 1)
                         return reject('multiple RFXCOM adapters found');
-                    resolve(new Rfxtrx(new serialport(path, { baudRate: 38400, })));
+                    resolve(new Rfxtrx(new serialport(devices[0], { baudRate: 38400, })));
                 });
             else
                 resolve(new Rfxtrx(new serialport(path, { baudRate: 38400, })));
@@ -734,13 +734,17 @@ export class Rfxtrx extends EventEmitter
             {
                 readdir('/sys/bus/usb/devices/' + d.busNumber + '-' + d.portNumbers.join('.') + '/' + d.busNumber + '-' + d.portNumbers.join('.') + ':1.0', function (err, files)
                 {
+
                     if (files)
+                    {
                         var tty = files.find(f => f.startsWith('tty'));
-                    if (tty)
-                        serials.push('/dev/' + tty);
+                        if (tty)
+                            serials.push('/dev/' + tty);
+                    }
                     next(err);
                 });
             });
+
             return serials;
         }
         return (await serialport.list()).filter(port => port.manufacturer && port.manufacturer == 'RFXCOM').map(sp => sp.path);
