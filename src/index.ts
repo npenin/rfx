@@ -13,9 +13,10 @@ portions of this file.
 import { uint8, uint16, uint32, int8, int16, int32, float, double, Frame, FrameDescription, uint64, Protocol as CProtocol } from '@domojs/protocol-parser';
 import { EventEmitter } from 'events';
 export { uint8, uint16, uint32, int8, int16, int32, float, double, uint64 }
-import { Queue, log as debug } from '@akala/core';
+import { Queue, log as debug, eachAsync } from '@akala/core';
+import * as usb from 'usb'
 import * as serialport from 'serialport'
-import { Duplex } from 'serialport';
+import * as os from 'os';
 
 const log = debug('rfxtrx');
 
@@ -116,6 +117,8 @@ import * as Elec1 from './elec1';
 import * as Elec2 from './elec2';
 import * as TemperatureHumidity from './temperature and humidity';
 import { Interface } from 'readline';
+import { readdir } from 'fs';
+import { Duplex } from 'serialport';
 
 
 export namespace Type
@@ -695,25 +698,51 @@ export class Rfxtrx extends EventEmitter
         return new Promise<Rfxtrx>((resolve, reject) =>
         {
             if (!path)
-                Rfxtrx.listEligibleSerials().then(ports =>
+                Rfxtrx.listEligibleSerials().then(devices =>
                 {
-                    if (ports.length == 0)
+                    if (devices.length == 0)
                         return reject('no matching port could be found');
-                    if (ports.length > 1)
+                    if (devices.length > 1)
                         return reject('multiple RFXCOM adapters found');
-                    resolve(new Rfxtrx(new serialport(ports[0].comName, { baudRate: 38400, })));
+                    resolve(new Rfxtrx(new serialport(path, { baudRate: 38400, })));
                 });
             else
                 resolve(new Rfxtrx(new serialport(path, { baudRate: 38400, })));
         });
     }
 
-    public static listEligibleSerials()
+    public static async listEligibleSerials()
     {
-        return serialport.list().then((ports: { manufacturer: string, comName: string }[]) =>
+
+        const devices = usb.getDeviceList().filter(d => d.deviceDescriptor.idVendor == 1027 && d.deviceDescriptor.idProduct == 24577);
+        const result: usb.Device[] = [];
+        await eachAsync(devices, (d, i, next) =>
         {
-            return ports.filter(port => port.manufacturer && port.manufacturer == 'RFXCOM');
-        })
+            d.open();
+            d.getStringDescriptor(d.deviceDescriptor.iManufacturer, function (error, data)
+            {
+                if (data.toString() == 'RFXCOM')
+                    result.push(d);
+                d.close();
+                next();
+            });
+        });
+        if (os.platform() == "linux" && result.length > 0)
+        {
+            const serials: string[] = [];
+            await eachAsync(result, (d, i, next) =>
+            {
+                readdir(d.busNumber + '-' + d.portNumbers.join('.') + '/' + d.busNumber + '-' + d.portNumbers.join('.') + ':1.0', function (err, files)
+                {
+                    var tty = files.find(f => f.startsWith('tty'));
+                    if (tty)
+                        serials.push('/dev/' + tty);
+                    next(err);
+                });
+            });
+            return serials;
+        }
+        return (await serialport.list()).filter(port => port.manufacturer && port.manufacturer == 'RFXCOM').map(sp => sp.path);
     }
 }
 
@@ -726,7 +755,7 @@ export interface EventMap extends AnimationEventMap
     TEMPERATURE_HUMIDITY: TemperatureHumidity.Device;
 }
 
-export interface Message<TSubMessage =any>
+export interface Message<TSubMessage = any>
 {
     length: uint16;
     type: number;
