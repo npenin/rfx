@@ -2,7 +2,7 @@ addons:
   apt:
     packages:
       - libusb-dev
-      - udev-dev
+      - libudev-dev
 language: node_js
 node_js:
 - node
