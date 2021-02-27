@@ -799,3 +799,9 @@ Lighting6.init();
 Elec1.init();
 Elec2.init();
 TemperatureHumidity.init();
+
+export
+{
+    InterfaceControl, InterfaceMessage, Rfy, Blinds1, Fan, Lighting1, Lighting2, Lighting3, Lighting4, Lighting5, Lighting6
+    , Elec1, Elec2, TemperatureHumidity
+}
