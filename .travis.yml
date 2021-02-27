@@ -1,3 +1,9 @@
+dist: trusty
+addons:
+  apt:
+    packages:
+      - libusb-dev
+      - udev-dev
 language: node_js
 node_js:
 - node
