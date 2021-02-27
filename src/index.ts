@@ -684,7 +684,7 @@ export class Rfxtrx extends EventEmitter
                                 if (err)
                                     reject(err);
                                 else
-                                    resolve();
+                                    resolve(null);
                             });
                         }, 1000)
                 }
