@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@akala/core@^6.0.5":
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/@akala/core/-/core-6.0.5.tgz#08c1dc883e751fb2056ea0075b30d87c5afd924d"
-  integrity sha512-xRdPBmn6fh4KQJTsJvoF10ySNNDMSYik68nNju5i8enDxN4wcVZHF1tJo4ar1BVF6hm+UX3G+3TQ4AcTc/DrVQ==
+"@akala/core@^6.0.6":
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/@akala/core/-/core-6.0.7.tgz#afe0a25ba923c1030182c2e0374650c05af4104c"
+  integrity sha512-Ym8uuIK5mWomvEdmYGOXrseJCCMuMCIBBVzDgVejekP+xVHl6Y1/VMaptamq8OXJwZjqDk6F+8Qfv7V4u6Q0Zg==
   dependencies:
-    "@akala/json-rpc-ws" "^9.1.11"
+    "@akala/json-rpc-ws" "^9.1.13"
     browser-process-hrtime "^1.0.0"
     debug "^4.1.1"
     es6-promise "^4.2.8"
@@ -21,10 +21,10 @@
     utils-merge "^1.0.0"
     ws "^7.4.3"
 
-"@akala/json-rpc-ws@^9.1.11":
-  version "9.1.11"
-  resolved "https://registry.yarnpkg.com/@akala/json-rpc-ws/-/json-rpc-ws-9.1.11.tgz#a27e4097c88ca75fdd655f42bb83500f0df63b67"
-  integrity sha512-8aU3vAvVSqvMM74iYzQzlEeXX14t84MUazrh8ATVg6sN6TwoGhA45yCOobp1DeMo5CtK89yw1gwwiJvZaFAyAg==
+"@akala/json-rpc-ws@^9.1.13":
+  version "9.1.13"
+  resolved "https://registry.yarnpkg.com/@akala/json-rpc-ws/-/json-rpc-ws-9.1.13.tgz#aff71f79c035928744ec1806b4ef36b38db1aa0e"
+  integrity sha512-/LXd7MXJZBx/vDyaFhpfXRB01qK2/RNMR+1NknA6IqaxaUANXhstYBCRT3qckL5P9OACdUKcxO/rkPNN6wYMaQ==
   dependencies:
     debug "^4.1.1"
     reflect-metadata "^0.1.13"
